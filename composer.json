@@ -1,6 +1,7 @@
 {
     "name": "vendi-advertising/vendi-shared-utils",
     "type": "library",
+    "version" : "3.0.4",
     "description": "Helper class shared across all Vendi-controlled properties",
     "keywords": ["vendi","vendi-advertising"],
     "homepage": "https://github.com/vendi-advertising/vendi-shared-utils",
