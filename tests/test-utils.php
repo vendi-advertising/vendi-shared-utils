@@ -1,8 +1,9 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
 use Vendi\Shared;
 
-class test_utils extends PHPUnit_Framework_TestCase
+class test_utils extends TestCase
 {
     private $OLD_POST;
     private $OLD_GET;
