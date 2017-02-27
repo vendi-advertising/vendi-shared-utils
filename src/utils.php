@@ -70,8 +70,8 @@ class utils
     /**
      * Get the value from the HTTP POST return the $default_value.
      * @param  string        $key           The form field's name to search in the $_POST array for.
-     * @param  integer|mixed $default_value Optional. If the $key cannot be found the value to return. Default null.
-     * @return integer|mixed                The value of the HTTP POST for the given $key or the $default.
+     * @param  mixed         $default_value Optional. If the $key cannot be found the value to return. Default null.
+     * @return mixed                        The value of the HTTP POST for the given $key or the $default.
      */
     public static function get_post_value( $key, $default_value = '' )
     {
@@ -81,8 +81,8 @@ class utils
     /**
      * Get the value from the HTTP GET return the $default_value.
      * @param  string        $key           The form field's name to search in the $_GET array for.
-     * @param  integer|mixed $default_value Optional. If the $key cannot be found the value to return. Default null.
-     * @return integer|mixed                The value of the HTTP GET for the given $key or the $default.
+     * @param  mixed         $default_value Optional. If the $key cannot be found the value to return. Default null.
+     * @return mixed                        The value of the HTTP GET for the given $key or the $default.
      */
     public static function get_get_value( $key, $default_value = '' )
     {
@@ -92,8 +92,8 @@ class utils
     /**
      * Get the value from the HTTP COOKIE return the $default_value.
      * @param  string        $key           The form field's name to search in the $_COOKIE array for.
-     * @param  integer|mixed $default_value Optional. If the $key cannot be found the value to return. Default null.
-     * @return integer|mixed                The value of the HTTP COOKIE for the given $key or the $default.
+     * @param  mixed         $default_value Optional. If the $key cannot be found the value to return. Default null.
+     * @return mixed                        The value of the HTTP COOKIE for the given $key or the $default.
      */
     public static function get_cookie_value( $key, $default_value = '' )
     {
@@ -103,12 +103,34 @@ class utils
     /**
      * Get the value from the HTTP SERVER return the $default_value.
      * @param  string        $key           The form field's name to search in the $_SERVER array for.
-     * @param  integer|mixed $default_value Optional. If the $key cannot be found the value to return. Default null.
-     * @return integer|mixed                The value of the HTTP SERVER for the given $key or the $default.
+     * @param  mixed         $default_value Optional. If the $key cannot be found the value to return. Default null.
+     * @return mixed                        The value of the HTTP SERVER for the given $key or the $default.
      */
     public static function get_server_value( $key, $default_value = '' )
     {
         return self::get_request_value( 'SERVER', $key, $default_value );
+    }
+
+    /**
+     * Get the first non-null value from the supplied list of sources.
+     *
+     * @param  string        $key           The form field's name to search in the each source array for.
+     * @param  array         $sources       Array of sources (GET, POST, SERVER, or COOKIE) in the order to check.
+     * @param  mixed         $default_value Optional. If the $key cannot be found the value to return. Default null.
+     * @return mixed                        The value of the source for the given $key or the $default.
+     */
+    public static function get_value_multiple_sources( $key, array $sources, $default_value = null )
+    {
+        foreach( $sources as $source )
+        {
+            $value = self::get_request_value( $source, $key, null );
+            if( null !== $value )
+            {
+                return $value;
+            }
+        }
+
+        return $default_value;
     }
 
     /**
