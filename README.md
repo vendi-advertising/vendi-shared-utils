@@ -1,5 +1,9 @@
 # Utility class generally for HTTP.
 
+[![Build Status](https://travis-ci.org/vendi-advertising/vendi-shared-utils.svg?branch=master)](https://travis-ci.org/vendi-advertising/vendi-shared-utils)
+[![Build Status](https://scrutinizer-ci.com/g/vendi-advertising/vendi-shared-utils/badges/build.png?b=master)](https://scrutinizer-ci.com/g/vendi-advertising/vendi-shared-utils/build-status/master)
+[![codecov](https://codecov.io/gh/vendi-advertising/vendi-shared-utils/branch/master/graph/badge.svg)](https://codecov.io/gh/vendi-advertising/vendi-shared-utils)
+
 NOTE: Do not modify any methods in this class ever. You can add new methods as needed but there is a lot of code the depends on this functioning in a specific fashion and since this is a shared class you are not guarenteed to have this specific class actually loaded.
 
 To clarify the above, this class is intended to be used by multiple plugins and there is no guarantee of load order. If you add a new method to this class you should grep the server for other installs and add code to those, too, since you don't know if your code will load first.
