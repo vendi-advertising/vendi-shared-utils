@@ -25,7 +25,7 @@ script:
         ./vendor/bin/phpunit -c phpunit.xml --coverage-clover=coverage.xml
         ./vendor/bin/ocular code-coverage:upload --format=php-clover coverage.xml
     else
-        phpunit
+        ./vendor/bin/phpunit -c phpunit.xml
     fi
 
 after_success:
