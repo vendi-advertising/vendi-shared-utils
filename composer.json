@@ -17,6 +17,10 @@
     "require": {
         "php": ">=5.3.0"
     },
+    "require-dev" : {
+        "phpunit/phpunit": "*",
+        "scrutinizer/ocular": "*"
+    },
     "autoload": {
         "psr-4": {"Vendi\\Shared\\": "src/"}
     }
