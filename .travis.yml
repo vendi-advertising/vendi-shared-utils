@@ -14,13 +14,16 @@ php:
   - hhvm
   - nightly
 
+before_script:
+  - composer self-update
+  - composer update; composer install --dev;
+
 script:
   - cd $TRAVIS_BUILD_DIR
   - |
     if [[ "$TRAVIS_PHP_VERSION" == "7.0" ]] ; then
-        phpunit --coverage-clover=coverage.xml
-        wget https://scrutinizer-ci.com/ocular.phar
-        php ocular.phar code-coverage:upload --format=php-clover coverage.xml
+        ./vendor/bin/phpunit -c phpunit.xml --coverage-clover=coverage.xml
+        ./vendor/bin/ocular code-coverage:upload --format=php-clover coverage.xml
     else
         phpunit
     fi
