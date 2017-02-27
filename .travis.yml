@@ -14,9 +14,6 @@ php:
   - hhvm
   - nightly
 
-env:
-  - WP_VERSION=latest WP_MULTISITE=0
-
 script:
   - cd $TRAVIS_BUILD_DIR
   - |
