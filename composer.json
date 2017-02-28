@@ -1,7 +1,7 @@
 {
     "name": "vendi-advertising/vendi-shared-utils",
     "type": "library",
-    "version" : "3.1.0",
+    "version" : "3.1.1",
     "description": "Helper class shared across all Vendi-controlled properties",
     "keywords": ["vendi","vendi-advertising"],
     "homepage": "https://github.com/vendi-advertising/vendi-shared-utils",
@@ -19,8 +19,7 @@
     },
     "require-dev" : {
         "phpunit/phpunit": "*",
-        "scrutinizer/ocular": "*",
-        "phpstan/phpstan": "^0.6.4"
+        "scrutinizer/ocular": "*"
     },
     "autoload": {
         "psr-4": {"Vendi\\Shared\\": "src/"}
