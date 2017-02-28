@@ -187,7 +187,7 @@ class utils
      * Get the current request array or mock array if set.
      *
      * @param  string    The server method to use, one of GET, POST, SERVER or COOKIE.
-     * @return arra|null The requested array or null.
+     * @return array|null The requested array or null.
      */
     public static function get_request_object( $request_method )
     {
