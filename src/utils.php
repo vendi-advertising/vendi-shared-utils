@@ -273,20 +273,6 @@ class utils
                 );
     }
 
-    public static function get_all_headers()
-    {
-        $headers = array();
-        foreach( array( '_SERVER', '_GET', '_POST', '_COOKIE', '_ENV' ) as $key )
-        {
-            if( array_key_exists( $key, $GLOBALS ) )
-            {
-
-            }
-            $headers[ $key ] = $GLOBALS[ $key ];
-        }
-        return $headers;
-    }
-
     /**
      * Convert the result of urlpieces back to a URL.
      *
