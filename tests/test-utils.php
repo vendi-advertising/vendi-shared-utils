@@ -29,6 +29,19 @@ class test_utils extends TestCase
     }
 
     /**
+     * @covers Vendi\Shared\utils::reset_all_custom_arrays
+     */
+    public function test_reset_all_custom_arrays()
+    {
+        $this->assertNull( \Vendi\Shared\utils::$CUSTOM_GET );
+        $this->assertNull( \Vendi\Shared\utils::get_get_value( 'key', null ) );
+        \Vendi\Shared\utils::$CUSTOM_GET = [ 'key' => 'value' ];
+        $this->assertSame( 'value', \Vendi\Shared\utils::get_get_value( 'key', null ) );
+        Vendi\Shared\utils::reset_all_custom_arrays();
+        $this->assertNull( \Vendi\Shared\utils::get_get_value( 'key', null ) );
+    }
+
+    /**
      * @covers Vendi\Shared\utils::is_post
      */
     public function test_is_post()
@@ -44,6 +57,39 @@ class test_utils extends TestCase
             $_SERVER[ 'REQUEST_METHOD' ] = $old;
         }
 
+    }
+
+    /**
+     * @covers Vendi\Shared\utils::get_value_multiple_sources
+     */
+    public function test_get_value_multiple_sources_get_post()
+    {
+        $_GET[ 'key' ] = 'get';
+        $_POST[ 'key' ] = 'post';
+
+        $this->assertSame( 'get', Vendi\Shared\utils::get_value_multiple_sources( 'key', [ 'GET', 'POST' ] ) );
+    }
+
+    /**
+     * @covers Vendi\Shared\utils::get_value_multiple_sources
+     */
+    public function test_get_value_multiple_sources_no_get()
+    {
+        $_GET[ 'key' ] = null;
+        $_POST[ 'key' ] = 'post';
+
+        $this->assertSame( 'post', Vendi\Shared\utils::get_value_multiple_sources( 'key', [ 'GET', 'POST' ] ) );
+    }
+
+    /**
+     * @covers Vendi\Shared\utils::get_value_multiple_sources
+     */
+    public function test_get_value_multiple_sources_default()
+    {
+        $_GET[ 'key' ] = 'get';
+        $_POST[ 'key' ] = 'post';
+
+        $this->assertSame( 'default', Vendi\Shared\utils::get_value_multiple_sources( 'missing', [ 'GET', 'POST' ], 'default' ) );
     }
 
     /**
@@ -66,6 +112,65 @@ class test_utils extends TestCase
         $this->assertFalse( \Vendi\Shared\utils::is_integer_like( '1.9' ) );
         $this->assertFalse( \Vendi\Shared\utils::is_integer_like( 'cheese' ) );
         $this->assertFalse( \Vendi\Shared\utils::is_integer_like( null ) );
+    }
+
+    /**
+     * @covers Vendi\Shared\utils::get_request_object
+     */
+    public function test_custom_arrays_get()
+    {
+        $this->assertNull( \Vendi\Shared\utils::$CUSTOM_GET );
+        $this->assertNull( \Vendi\Shared\utils::get_get_value( 'key', null ) );
+        $this->assertArrayNotHasKey( 'key', $_GET );
+        \Vendi\Shared\utils::$CUSTOM_GET = [ 'key' => 'value' ];
+        $this->assertSame( 'value', \Vendi\Shared\utils::get_get_value( 'key' ) );
+
+        \Vendi\Shared\utils::reset_all_custom_arrays();
+    }
+
+    /**
+     * @covers Vendi\Shared\utils::get_request_object
+     */
+    public function test_custom_arrays_post()
+    {
+        $this->assertNull( \Vendi\Shared\utils::$CUSTOM_POST );
+
+        $this->assertNull( \Vendi\Shared\utils::get_post_value( 'key', null ) );
+        $this->assertArrayNotHasKey( 'key', $_POST );
+        \Vendi\Shared\utils::$CUSTOM_POST = [ 'key' => 'value' ];
+        $this->assertSame( 'value', \Vendi\Shared\utils::get_post_value( 'key' ) );
+
+        \Vendi\Shared\utils::reset_all_custom_arrays();
+    }
+
+    /**
+     * @covers Vendi\Shared\utils::get_request_object
+     */
+    public function test_custom_arrays_cookie()
+    {
+        $this->assertNull( \Vendi\Shared\utils::$CUSTOM_COOKIE );
+
+        $this->assertNull( \Vendi\Shared\utils::get_cookie_value( 'key', null ) );
+        $this->assertArrayNotHasKey( 'key', $_COOKIE );
+        \Vendi\Shared\utils::$CUSTOM_COOKIE = [ 'key' => 'value' ];
+        $this->assertSame( 'value', \Vendi\Shared\utils::get_cookie_value( 'key' ) );
+
+        \Vendi\Shared\utils::reset_all_custom_arrays();
+    }
+
+    /**
+     * @covers Vendi\Shared\utils::get_request_object
+     */
+    public function test_custom_arrays_server()
+    {
+        $this->assertNull( \Vendi\Shared\utils::$CUSTOM_SERVER );
+
+        $this->assertNull( \Vendi\Shared\utils::get_server_value( 'key', null ) );
+        $this->assertArrayNotHasKey( 'key', $_SERVER );
+        \Vendi\Shared\utils::$CUSTOM_SERVER = [ 'key' => 'value' ];
+        $this->assertSame( 'value', \Vendi\Shared\utils::get_server_value( 'key' ) );
+
+        \Vendi\Shared\utils::reset_all_custom_arrays();
     }
 
     /**
