@@ -12,13 +12,22 @@ Any additional methods to this class MUST work without fail and can have zero de
 
 ## History:
 
-3.0.5 - Added get_value_multiple_sources.
-      - Fixed documentation errors from copy and pasting.
-3.0.4 - Only trim() if the value is a string.
-2.1.0 - Allow setting custom POST/GET/COOKIE/SERVER on
-        static fields of class. If set they will be used
-        in place of the global $_ XYZ values. Also added
-        reset_all_custom_arrays() to erase these values.
-        These changes should be 100% backwards compatible.
-2.0.1 - Added unparse_url()
-2.0.0 - Rewrite of previous code into this namesapce
+### 3.1.0
+ - Remove `unparse_url()` which was from a different project.
+ - Finished documenting everything.
+
+### 3.0.5
+ - Added `get_value_multiple_sources()`.
+ - Fixed documentation errors from copy and pasting.
+
+### 3.0.4
+ - Only trim() if the value is a string.
+
+### 2.1.0
+ - Allow setting custom POST/GET/COOKIE/SERVER on static fields of class. If set they will be used in place of the global $_ XYZ values. Also added `reset_all_custom_arrays()` to erase these values. These changes should be 100% backwards compatible.
+
+### 2.0.1
+ - Added `unparse_url()`
+
+### 2.0.0
+ - Rewrite of previous code into this namesapce
