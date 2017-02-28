@@ -35,7 +35,7 @@ class test_utils extends TestCase
     {
         $this->assertNull( \Vendi\Shared\utils::$CUSTOM_GET );
         $this->assertNull( \Vendi\Shared\utils::get_get_value( 'key', null ) );
-        \Vendi\Shared\utils::$CUSTOM_GET = [ 'key' => 'value' ];
+        \Vendi\Shared\utils::$CUSTOM_GET = array( 'key' => 'value' );
         $this->assertSame( 'value', \Vendi\Shared\utils::get_get_value( 'key', null ) );
         Vendi\Shared\utils::reset_all_custom_arrays();
         $this->assertNull( \Vendi\Shared\utils::get_get_value( 'key', null ) );
@@ -122,7 +122,7 @@ class test_utils extends TestCase
         $this->assertNull( \Vendi\Shared\utils::$CUSTOM_GET );
         $this->assertNull( \Vendi\Shared\utils::get_get_value( 'key', null ) );
         $this->assertArrayNotHasKey( 'key', $_GET );
-        \Vendi\Shared\utils::$CUSTOM_GET = [ 'key' => 'value' ];
+        \Vendi\Shared\utils::$CUSTOM_GET = array( 'key' => 'value' );
         $this->assertSame( 'value', \Vendi\Shared\utils::get_get_value( 'key' ) );
 
         \Vendi\Shared\utils::reset_all_custom_arrays();
@@ -137,7 +137,7 @@ class test_utils extends TestCase
 
         $this->assertNull( \Vendi\Shared\utils::get_post_value( 'key', null ) );
         $this->assertArrayNotHasKey( 'key', $_POST );
-        \Vendi\Shared\utils::$CUSTOM_POST = [ 'key' => 'value' ];
+        \Vendi\Shared\utils::$CUSTOM_POST = array( 'key' => 'value' );
         $this->assertSame( 'value', \Vendi\Shared\utils::get_post_value( 'key' ) );
 
         \Vendi\Shared\utils::reset_all_custom_arrays();
@@ -152,7 +152,7 @@ class test_utils extends TestCase
 
         $this->assertNull( \Vendi\Shared\utils::get_cookie_value( 'key', null ) );
         $this->assertArrayNotHasKey( 'key', $_COOKIE );
-        \Vendi\Shared\utils::$CUSTOM_COOKIE = [ 'key' => 'value' ];
+        \Vendi\Shared\utils::$CUSTOM_COOKIE = array( 'key' => 'value' );
         $this->assertSame( 'value', \Vendi\Shared\utils::get_cookie_value( 'key' ) );
 
         \Vendi\Shared\utils::reset_all_custom_arrays();
@@ -167,7 +167,7 @@ class test_utils extends TestCase
 
         $this->assertNull( \Vendi\Shared\utils::get_server_value( 'key', null ) );
         $this->assertArrayNotHasKey( 'key', $_SERVER );
-        \Vendi\Shared\utils::$CUSTOM_SERVER = [ 'key' => 'value' ];
+        \Vendi\Shared\utils::$CUSTOM_SERVER = array( 'key' => 'value' );
         $this->assertSame( 'value', \Vendi\Shared\utils::get_server_value( 'key' ) );
 
         \Vendi\Shared\utils::reset_all_custom_arrays();
