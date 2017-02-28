@@ -18,6 +18,9 @@ class utils
 
     public static $CUSTOM_SERVER = null;
 
+    /**
+     * Reset the internal arrays to default values.
+     */
     public static function reset_all_custom_arrays()
     {
         self::$CUSTOM_POST = null;
@@ -136,6 +139,13 @@ class utils
         return self::get_request_value_int( 'SERVER', $key, $default_value );
     }
 
+    /**
+     * Get the value from the supplied request as an integer or return the $default_value.
+     * @param  string  $request_method      The server method to use, one of GET, POST, SERVER or COOKIE.
+     * @param  string        $key           The form field's name to search in the $_SERVER array for.
+     * @param  integer|mixed $default_value Optional. If the $key cannot be found the value to return. Default null.
+     * @return integer|mixed                The value of the request method for the given $key or the $default.
+     */
     public static function get_request_value_int( $request_method, $key, $default_value = null )
     {
         $value = self::get_request_value( $request_method, $key, null );
@@ -147,6 +157,13 @@ class utils
         return $default_value;
     }
 
+    /**
+     * Get the value from the supplied request or return the $default_value.
+     * @param  string  $request_method      The server method to use, one of GET, POST, SERVER or COOKIE.
+     * @param  string        $key           The form field's name to search in the $_SERVER array for.
+     * @param  integer|mixed $default_value Optional. If the $key cannot be found the value to return. Default null.
+     * @return integer|mixed                The value of the request method for the given $key or the $default.
+     */
     public static function get_request_value( $request_method, $key, $default_value = null )
     {
         $request_obj = self::get_request_object( $request_method );
@@ -166,6 +183,12 @@ class utils
         return $ret;
     }
 
+    /**
+     * Get the current request array or mock array if set.
+     *
+     * @param  string    The server method to use, one of GET, POST, SERVER or COOKIE.
+     * @return arra|null The requested array or null.
+     */
     public static function get_request_object( $request_method )
     {
         $obj = null;
