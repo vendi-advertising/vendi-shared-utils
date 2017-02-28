@@ -67,7 +67,7 @@ class test_utils extends TestCase
         $_GET[ 'key' ] = 'get';
         $_POST[ 'key' ] = 'post';
 
-        $this->assertSame( 'get', Vendi\Shared\utils::get_value_multiple_sources( 'key', [ 'GET', 'POST' ] ) );
+        $this->assertSame( 'get', Vendi\Shared\utils::get_value_multiple_sources( 'key', array( 'GET', 'POST' ) ) );
     }
 
     /**
@@ -78,7 +78,7 @@ class test_utils extends TestCase
         $_GET[ 'key' ] = null;
         $_POST[ 'key' ] = 'post';
 
-        $this->assertSame( 'post', Vendi\Shared\utils::get_value_multiple_sources( 'key', [ 'GET', 'POST' ] ) );
+        $this->assertSame( 'post', Vendi\Shared\utils::get_value_multiple_sources( 'key', array( 'GET', 'POST' ) ) );
     }
 
     /**
@@ -89,7 +89,7 @@ class test_utils extends TestCase
         $_GET[ 'key' ] = 'get';
         $_POST[ 'key' ] = 'post';
 
-        $this->assertSame( 'default', Vendi\Shared\utils::get_value_multiple_sources( 'missing', [ 'GET', 'POST' ], 'default' ) );
+        $this->assertSame( 'default', Vendi\Shared\utils::get_value_multiple_sources( 'missing', array( 'GET', 'POST' ), 'default' ) );
     }
 
     /**
