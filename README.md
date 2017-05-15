@@ -4,6 +4,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vendi-advertising/vendi-shared-utils/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vendi-advertising/vendi-shared-utils/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/vendi-advertising/vendi-shared-utils/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/vendi-advertising/vendi-shared-utils/?branch=master)
 [![codecov](https://codecov.io/gh/vendi-advertising/vendi-shared-utils/branch/master/graph/badge.svg)](https://codecov.io/gh/vendi-advertising/vendi-shared-utils)
+[![HHVM Status](http://hhvm.h4cc.de/badge/vendi-advertising/vendi-shared-utils.svg?style=flat)](http://hhvm.h4cc.de/package/vendi-advertising/vendi-shared-utils)
 
 NOTE: Do not modify any methods in this class ever. You can add new methods as needed but there is a lot of code the depends on this functioning in a specific fashion and since this is a shared class you are not guarenteed to have this specific class actually loaded.
 
