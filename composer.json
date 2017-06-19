@@ -1,7 +1,7 @@
 {
     "name": "vendi-advertising/vendi-shared-utils",
     "type": "library",
-    "version" : "3.1.1",
+    "version" : "4.0.0",
     "description": "Helper class shared across all Vendi-controlled properties",
     "keywords": ["vendi","vendi-advertising"],
     "homepage": "https://github.com/vendi-advertising/vendi-shared-utils",
@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=7.0.0"
     },
     "require-dev" : {
         "phpunit/phpunit": "*",
