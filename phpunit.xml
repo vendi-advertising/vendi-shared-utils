@@ -7,13 +7,13 @@
 	convertWarningsToExceptions="true"
 	>
 	<testsuites>
-		<testsuite>
+		<testsuite name="primary">
 			<directory prefix="test-" suffix=".php">./tests/</directory>
 		</testsuite>
 	</testsuites>
 
     <logging>
-        <log type="coverage-html" target="tests/logs/coverage" charset="UTF-8" />
+        <log type="coverage-html" target="tests/logs/coverage" />
     </logging>
 
     <filter>
@@ -22,9 +22,6 @@
             <directory suffix=".php">./src/</directory>
         </whitelist>
 
-        <blacklist>
-          <directory suffix=".php">./tests/</directory>
-        </blacklist>
     </filter>
 
 

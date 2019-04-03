@@ -11,7 +11,7 @@ class test_utils extends TestCase
     private $OLD_SERVER;
     private $OLD_SESSION;
 
-    public function setUp()
+    public function setUp() : void
     {
         parent::setUp();
 
@@ -22,7 +22,7 @@ class test_utils extends TestCase
         $this->OLD_SESSION = isset( $_SESSION ) ? $_SESSION : null;
     }
 
-    public function tearDown()
+    public function tearDown() : void
     {
         $_COOKIE  = $this->OLD_COOKIE;
         $_SERVER  = $this->OLD_SERVER;

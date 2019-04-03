@@ -1,7 +1,6 @@
 {
     "name": "vendi-advertising/vendi-shared-utils",
     "type": "library",
-    "version" : "5.0.0",
     "description": "Helper class shared across all Vendi-controlled properties",
     "keywords": ["vendi","vendi-advertising"],
     "homepage": "https://github.com/vendi-advertising/vendi-shared-utils",
@@ -10,12 +9,12 @@
         {
             "name": "Chris Haas",
             "email": "chris@vendiadvertising.com",
-            "homepage": "https://www.vendiadvertising.com/",
+            "homepage": "https://vendiadvertising.com/",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": ">=7.0.0"
+        "php": ">=7.1.0"
     },
     "require-dev" : {
         "phpunit/phpunit": "*",
