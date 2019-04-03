@@ -13,6 +13,9 @@ Any additional methods to this class MUST work without fail and can have zero de
 
 ## History:
 
+### 5.0.0
+ - Removed `fs_utils`, stay on 4.x if you need this still
+
 ### 4.0.0
  - Bumped PHP minimum requirement to 7.0
  - Added `fs_utils`:

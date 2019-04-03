@@ -18,6 +18,8 @@ class utils
 
     public static $CUSTOM_SERVER = null;
 
+    public static $CUSTOM_SESSION = null;
+
     /**
      * Reset the internal arrays to default values.
      */
@@ -27,6 +29,7 @@ class utils
         self::$CUSTOM_GET = null;
         self::$CUSTOM_COOKIE = null;
         self::$CUSTOM_SERVER = null;
+        self::$CUSTOM_SESSION = null;
     }
 
     /**
@@ -71,6 +74,17 @@ class utils
     public static function get_server_value( $key, $default_value = '' )
     {
         return self::get_request_value( 'SERVER', $key, $default_value );
+    }
+
+    /**
+     * Get the value from the SESSION return the $default_value.
+     * @param  string        $key           The form field's name to search in the $_SESSION array for.
+     * @param  mixed         $default_value Optional. If the $key cannot be found the value to return. Default null.
+     * @return mixed                        The value of the SESSION for the given $key or the $default.
+     */
+    public static function get_session_value( $key, $default_value = '' )
+    {
+        return self::get_request_value( 'SESSION', $key, $default_value );
     }
 
     /**
@@ -137,6 +151,17 @@ class utils
     public static function get_server_value_int( $key, $default_value = null )
     {
         return self::get_request_value_int( 'SERVER', $key, $default_value );
+    }
+
+    /**
+     * Get the value from the SESSION as an integer or return the $default_value.
+     * @param  string        $key           The form field's name to search in the $_SESSION array for.
+     * @param  integer|mixed $default_value Optional. If the $key cannot be found the value to return. Default null.
+     * @return integer|mixed                The value of the SESSION for the given $key or the $default.
+     */
+    public static function get_session_value_int( $key, $default_value = null )
+    {
+        return self::get_request_value_int( 'SESSION', $key, $default_value );
     }
 
     /**
@@ -220,6 +245,13 @@ class utils
                     return self::$CUSTOM_SERVER;
                 }
                 return ( isset( $_SERVER ) && is_array( $_SERVER ) && count( $_SERVER ) > 0 ? $_SERVER : null );
+
+            case 'SESSION':
+                if( is_array( self::$CUSTOM_SESSION ) )
+                {
+                    return self::$CUSTOM_SESSION;
+                }
+                return ( isset( $_SESSION ) && is_array( $_SESSION ) && count( $_SESSION ) > 0 ? $_SESSION : null );
 
             default:
                 return null;

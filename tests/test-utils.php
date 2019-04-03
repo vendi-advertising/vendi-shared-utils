@@ -9,23 +9,26 @@ class test_utils extends TestCase
     private $OLD_GET;
     private $OLD_COOKIE;
     private $OLD_SERVER;
+    private $OLD_SESSION;
 
     public function setUp()
     {
         parent::setUp();
 
-        $this->OLD_COOKIE = isset( $_COOKIE ) ? $_COOKIE : null;
-        $this->OLD_SERVER = isset( $_SERVER ) ? $_SERVER : null;
-        $this->OLD_GET    = isset( $_GET )    ? $_GET    : null;
-        $this->OLD_POST   = isset( $_POST )   ? $_POST   : null;
+        $this->OLD_COOKIE  = isset( $_COOKIE )  ? $_COOKIE  : null;
+        $this->OLD_SERVER  = isset( $_SERVER )  ? $_SERVER  : null;
+        $this->OLD_GET     = isset( $_GET )     ? $_GET     : null;
+        $this->OLD_POST    = isset( $_POST )    ? $_POST    : null;
+        $this->OLD_SESSION = isset( $_SESSION ) ? $_SESSION : null;
     }
 
     public function tearDown()
     {
-        $_COOKIE = $this->OLD_COOKIE;
-        $_SERVER = $this->OLD_SERVER;
-        $_GET    = $this->OLD_GET;
-        $_POST   = $this->OLD_POST;
+        $_COOKIE  = $this->OLD_COOKIE;
+        $_SERVER  = $this->OLD_SERVER;
+        $_GET     = $this->OLD_GET;
+        $_POST    = $this->OLD_POST;
+        $_SESSION = $this->OLD_SESSION;
     }
 
     /**
