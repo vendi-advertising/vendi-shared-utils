@@ -18,7 +18,8 @@
     },
     "require-dev" : {
         "phpunit/phpunit": "*",
-        "scrutinizer/ocular": "*"
+        "scrutinizer/ocular": "*",
+        "guzzlehttp/psr7": "^1.8.4"
     },
     "autoload": {
         "psr-4": {"Vendi\\Shared\\": "src/"}
